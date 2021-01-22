@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>第一篇博客文章! | Hexo</title>
+  <title>hexo + github所遇问题总结（Windows系统） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、历时将近两个小时，将博客初步搭建完成。 2、中间碰到不少问题，有些是配置环境的问题，有些是版本的问题。 3、不过都解决了，就很舒服呀！！">
+  <meta name="description" content="1、在进行npm下载博客相关事项之前，首先下载git，并进行git配置。 2、nodejs下载好后，使用淘宝的镜像网站。 起初使用的如下命令，可能由于存放位置的原因，一进入到blog文件，cnpm就无法使用。npm install -g cnpm –registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org 解决：不使用cnpm，使用如下命令配置镜像网站。npm config">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇博客文章!">
+<meta property="og:title" content="hexo + github所遇问题总结（Windows系统）">
 <meta property="og:url" content="http://example.com/2021/01/21/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、历时将近两个小时，将博客初步搭建完成。 2、中间碰到不少问题，有些是配置环境的问题，有些是版本的问题。 3、不过都解决了，就很舒服呀！！">
+<meta property="og:description" content="1、在进行npm下载博客相关事项之前，首先下载git，并进行git配置。 2、nodejs下载好后，使用淘宝的镜像网站。 起初使用的如下命令，可能由于存放位置的原因，一进入到blog文件，cnpm就无法使用。npm install -g cnpm –registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org 解决：不使用cnpm，使用如下命令配置镜像网站。npm config">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-20T16:08:32.000Z">
-<meta property="article:modified_time" content="2021-01-20T16:11:33.173Z">
+<meta property="article:modified_time" content="2021-01-22T15:01:49.910Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      第一篇博客文章!
+      hexo + github所遇问题总结（Windows系统）
     </h1>
   
 
@@ -174,9 +174,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、历时将近两个小时，将博客初步搭建完成。</p>
-<p>2、中间碰到不少问题，有些是配置环境的问题，有些是版本的问题。</p>
-<p>3、不过都解决了，就很舒服呀！！</p>
+        <p>1、在进行npm下载博客相关事项之前，首先下载git，并进行git配置。</p>
+<p>2、nodejs下载好后，使用淘宝的镜像网站。</p>
+<p>起初使用的如下命令，可能由于存放位置的原因，一进入到blog文件，cnpm就无法使用。<br>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+<p>解决：不使用cnpm，使用如下命令配置镜像网站。<br>npm config set registry <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+<p>3、在GitHub上新建仓库的时候，注意点，是hub，不是hup，就因为这个憨批错误，搞了我好久。</p>
+<p>4、在blog下的 _config.yml配置文件中进行配置的时候，注意前面需要加空格。</p>
+<p>5、利用GitHub平台搭建完成后，网址前加上https://</p>
 
       
 

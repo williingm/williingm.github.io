@@ -159,7 +159,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/21/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">第一篇博客文章!</a>
+      <a class="article-title" href="/2021/01/21/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">hexo + github所遇问题总结（Windows系统）</a>
     </h1>
   
 
@@ -172,9 +172,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1、历时将近两个小时，将博客初步搭建完成。</p>
-<p>2、中间碰到不少问题，有些是配置环境的问题，有些是版本的问题。</p>
-<p>3、不过都解决了，就很舒服呀！！</p>
+        <p>1、在进行npm下载博客相关事项之前，首先下载git，并进行git配置。</p>
+<p>2、nodejs下载好后，使用淘宝的镜像网站。</p>
+<p>起初使用的如下命令，可能由于存放位置的原因，一进入到blog文件，cnpm就无法使用。<br>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+<p>解决：不使用cnpm，使用如下命令配置镜像网站。<br>npm config set registry <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+<p>3、在GitHub上新建仓库的时候，注意点，是hub，不是hup，就因为这个憨批错误，搞了我好久。</p>
+<p>4、在blog下的 _config.yml配置文件中进行配置的时候，注意前面需要加空格。</p>
+<p>5、利用GitHub平台搭建完成后，网址前加上https://</p>
 
       
 
