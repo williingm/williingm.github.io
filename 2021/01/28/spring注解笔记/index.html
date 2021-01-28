@@ -8,19 +8,17 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring：最开始的是interface21 spring 进行创建对象 理念：使现有的技术开发更容易   优点：轻量级、非入侵式；控制反转（IOC）、面向切面编程（AOP）；支持事务的处理，对框架整合的支持 组成： IOC：控制反转，将对象的创建交给了第三方（用户） 实现IOC的方式： 一、DI 依赖注入 在配置文件初始化的时候，容器中管理的对象就已经初始化。  A. spring配置 别名：">
+  <meta name="description" content="##注解配置1、导入约束  xmlns:context&#x3D;”http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&quot;    2、配置注解的支持     context:annotation-config&#x2F; &#x2F;&#x2F;注解支持开启 &lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2021/01/26/spring%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="http://example.com/2021/01/28/spring%E6%B3%A8%E8%A7%A3%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Spring：最开始的是interface21 spring 进行创建对象 理念：使现有的技术开发更容易   优点：轻量级、非入侵式；控制反转（IOC）、面向切面编程（AOP）；支持事务的处理，对框架整合的支持 组成： IOC：控制反转，将对象的创建交给了第三方（用户） 实现IOC的方式： 一、DI 依赖注入 在配置文件初始化的时候，容器中管理的对象就已经初始化。  A. spring配置 别名：">
+<meta property="og:description" content="##注解配置1、导入约束  xmlns:context&#x3D;”http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&quot;    2、配置注解的支持     context:annotation-config&#x2F; &#x2F;&#x2F;注解支持开启 &lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&amp;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="d:/personal_blog/nodejs/node_global/node_modules/hexo-cli/blog/source_posts/picture/1.png">
-<meta property="article:published_time" content="2021-01-26T05:06:18.068Z">
-<meta property="article:modified_time" content="2021-01-28T07:34:58.952Z">
+<meta property="article:published_time" content="2021-01-28T07:37:13.202Z">
+<meta property="article:modified_time" content="2021-01-28T07:22:01.555Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="d:/personal_blog/nodejs/node_global/node_modules/hexo-cli/blog/source_posts/picture/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -156,111 +154,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-spring框架学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-spring注解笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Spring：最开始的是interface21</p>
-<p>spring 进行创建对象</p>
-<p>理念：使现有的技术开发更容易  </p>
-<p>优点：轻量级、非入侵式；控制反转（IOC）、面向切面编程（AOP）；支持事务的处理，对框架整合的支持</p>
-<p>组成：<br><img src="D:\personal_blog\nodejs\node_global\node_modules\hexo-cli\blog\source_posts\picture\1.png" alt="avatar"></p>
-<p>IOC：控制反转，将对象的创建交给了第三方（用户）</p>
-<p>实现IOC的方式：<br></p>
-<p>一、DI 依赖注入</p>
-<pre><code>在配置文件初始化的时候，容器中管理的对象就已经初始化。
-
-A. spring配置
-别名：使用别名后，可使用别名获取对象。
-
-Bean的配置：nothing to say
-
-import：用于团队开发,将多人的配置文件整合到一起。
-&lt;import resource=&quot;bean.xml&quot;/&gt;</code></pre>
-<p>1、构造器注入</p>
-<p>2、Set方式注入</p>
-<pre><code>            &lt;bean id=&quot;student&quot; class=&quot;pojo.Student&quot;&gt;
-            &lt;!-- 普通值注入 --&gt;
-            &lt;property name=&quot;name&quot; value=&quot;cppppppd&quot;&gt;&lt;/property&gt;
-            &lt;!-- Bean注入 --&gt;
-            &lt;property name=&quot;address&quot; ref=&quot;address&quot;&gt;&lt;/property&gt;
-            &lt;!-- 数组注入 --&gt;
-            &lt;property name=&quot;books&quot;&gt;
-                &lt;array&gt;
-                    &lt;value&gt;鸿蒙&lt;/value&gt;
-                    &lt;value&gt;西游&lt;/value&gt;
-                    &lt;value&gt;水浒&lt;/value&gt;
-                &lt;/array&gt;
-            &lt;/property&gt;
-            &lt;!-- list数组注入 --&gt;
-            &lt;property name=&quot;hobbys&quot;&gt;
-                &lt;list&gt;
-                    &lt;value&gt;听歌&lt;/value&gt;
-                    &lt;value&gt;游泳&lt;/value&gt;
-                &lt;/list&gt;
-            &lt;/property&gt;
-            &lt;!-- Map --&gt;
-            &lt;property name=&quot;card&quot;&gt;
-                &lt;map&gt;
-                    &lt;entry key=&quot;身份证&quot; value=&quot;123321&quot;&gt;&lt;/entry&gt;
-                    &lt;entry key=&quot;电话卡&quot; value=&quot;1110002229&quot;&gt;&lt;/entry&gt;
-                &lt;/map&gt;
-            &lt;/property&gt;
-            &lt;!-- set --&gt;
-            &lt;property name=&quot;games&quot;&gt;
-                &lt;set&gt;
-                    &lt;value&gt;lol&lt;/value&gt;
-                    &lt;value&gt;我叫MT&lt;/value&gt;
-                &lt;/set&gt;
-            &lt;/property&gt;
-            &lt;!-- null注入 --&gt;
-            &lt;property name=&quot;wife&quot;&gt;
-                &lt;null/&gt;
-            &lt;/property&gt;
-            &lt;!-- properties --&gt;
-            &lt;property name=&quot;info&quot;&gt;
-                &lt;props&gt;
-                    &lt;prop key=&quot;编号&quot;&gt;123&lt;/prop&gt;
-                    &lt;prop key=&quot;username&quot;&gt;tom&lt;/prop&gt;
-                    &lt;prop key=&quot;密码&quot;&gt;123456&lt;/prop&gt;
-                &lt;/props&gt;
-            &lt;/property&gt;
-        &lt;/bean&gt;
-
-        &lt;bean id=&quot;address&quot; class=&quot;pojo.Address&quot;&gt;
-            &lt;property name=&quot;address&quot; value=&quot;江苏省东京市菊花村&quot;&gt;&lt;/property&gt;
-        &lt;/bean&gt;</code></pre>
-<p>3、其他方式（拓展）</p>
-<p>p命名空间导入：</p>
-<pre><code>    xmlns:p=&quot;http://www.springframework.org/schema/p&quot; //针对类的属性</code></pre>
-<p>c命名空间导入：</p>
-<pre><code>    xmlns:c=&quot;http://www.springframework.org/schema/c&quot; //针对构造器
-
-    注意点：p、c命名空间不可直接使用，需要导入</code></pre>
-<p>4、bean scope</p>
-<pre><code>singleton:scope=&quot;singleton&quot;; //spring默认
-prototype:scope=&quot;prototype&quot;;
-其余：request、session、application   web开发使用</code></pre>
-<p>5、Bean的自动装配<br>装配的三种方式：xml中显示配置；java中显示配置；隐式的自动装配Bean </p>
-<pre><code>自动装配：
-    通过byType
-    &lt;bean id=&quot;cat&quot; class=&quot;bean.Cat&quot;&gt;&lt;/bean&gt;
-    &lt;bean id=&quot;dog&quot; class=&quot;bean.Dog&quot;&gt;&lt;/bean&gt;
-
-    &lt;bean id=&quot;people&quot; class=&quot;bean.People&quot; autowire=&quot;byType&quot;&gt;
-        &lt;property name=&quot;name&quot; value=&quot;xiapming&quot;&gt;&lt;/property&gt;
-    &lt;/bean&gt;
-    通过byName
-    &lt;bean id=&quot;cat&quot; class=&quot;bean.Cat&quot;&gt;&lt;/bean&gt;
-    &lt;bean id=&quot;dog&quot; class=&quot;bean.Dog&quot;&gt;&lt;/bean&gt;
-
-    &lt;bean id=&quot;people&quot; class=&quot;bean.People&quot; autowire=&quot;byName&quot;&gt;
-        &lt;property name=&quot;name&quot; value=&quot;xiapming&quot;&gt;&lt;/property&gt;
-    &lt;/bean&gt;</code></pre>
+        <p>##注解配置<br>1、导入约束  xmlns:context=”<a target="_blank" rel="noopener" href="http://www.springframework.org/schema/context&quot;">http://www.springframework.org/schema/context&quot;</a><br>    2、配置注解的支持     <a href="context:annotation-config/">context:annotation-config/</a> //注解支持开启</p>
+<pre><code>&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+     xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+     xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+      https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      https://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;</code></pre>
+<p>##注解类型：</p>
 <ul>
-<li>使用注解实现自动装配 见【注解】笔记</li>
+<li>@Autowired 可在属性上使用！也可在set方法上使用</li>
+<li>@Qualifier(value = “cat1”) //制定唯一的bean对象进行注入<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Qualifier(value = &quot;cat1&quot;)</span></span><br><span class="line"><span class="keyword">private</span> Cat cat;</span><br></pre></td></tr></table></figure></li>
+<li>@Nullable 被标记的字段可位</li>
+<li>@Resource 功能比 @Autowired强大一些</li>
 </ul>
+<p>##以下四个注解功能一样，在mvc架构中做了区分，仅此而已 </p>
+<ul>
+<li><p>@Component  #将某个类注册到spring中，装配bean</p>
+</li>
+<li><p>dao  @Repository</p>
+</li>
+<li><p>service  @Service</p>
+</li>
+<li><p>controller  @Controller</p>
+</li>
+<li><p>@Scope(“prototype”)  //作用域</p>
+</li>
+<li><p>@Value(“属性值”)</p>
+</li>
+</ul>
+<p>小结：<br>    xml管理bean<br>    注解完成属性注入</p>
 
       
 
@@ -340,7 +269,7 @@ prototype:scope=&quot;prototype&quot;;
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/01/26/spring%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/01/28/spring%E6%B3%A8%E8%A7%A3%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -354,18 +283,9 @@ prototype:scope=&quot;prototype&quot;;
   
 <nav id="article-nav">
   
-    <a href="/2021/01/28/spring%E6%B3%A8%E8%A7%A3%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/01/21/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo + github所遇问题总结（Windows系统）</div>
+    <a href="/2021/01/26/spring%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   

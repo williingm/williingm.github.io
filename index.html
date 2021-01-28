@@ -152,6 +152,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-spring注解笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##注解配置<br>1、导入约束  xmlns:context=”<a target="_blank" rel="noopener" href="http://www.springframework.org/schema/context&quot;">http://www.springframework.org/schema/context&quot;</a><br>    2、配置注解的支持     <a href="context:annotation-config/">context:annotation-config/</a> //注解支持开启</p>
+<pre><code>&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+     xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+     xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+      https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      https://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;</code></pre>
+<p>##注解类型：</p>
+<ul>
+<li>@Autowired 可在属性上使用！也可在set方法上使用</li>
+<li>@Qualifier(value = “cat1”) //制定唯一的bean对象进行注入<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Qualifier(value = &quot;cat1&quot;)</span></span><br><span class="line"><span class="keyword">private</span> Cat cat;</span><br></pre></td></tr></table></figure></li>
+<li>@Nullable 被标记的字段可位</li>
+<li>@Resource 功能比 @Autowired强大一些</li>
+</ul>
+<p>##以下四个注解功能一样，在mvc架构中做了区分，仅此而已 </p>
+<ul>
+<li><p>@Component  #将某个类注册到spring中，装配bean</p>
+</li>
+<li><p>dao  @Repository</p>
+</li>
+<li><p>service  @Service</p>
+</li>
+<li><p>controller  @Controller</p>
+</li>
+<li><p>@Scope(“prototype”)  //作用域</p>
+</li>
+<li><p>@Value(“属性值”)</p>
+</li>
+</ul>
+<p>小结：<br>    xml管理bean<br>    注解完成属性注入</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/28/spring%E6%B3%A8%E8%A7%A3%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-spring框架学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -164,7 +242,7 @@
 <p>组成：<br><img src="D:\personal_blog\nodejs\node_global\node_modules\hexo-cli\blog\source_posts\picture\1.png" alt="avatar"></p>
 <p>IOC：控制反转，将对象的创建交给了第三方（用户）</p>
 <p>实现IOC的方式：<br></p>
-<p>1、DI 依赖注入</p>
+<p>一、DI 依赖注入</p>
 <pre><code>在配置文件初始化的时候，容器中管理的对象就已经初始化。
 
 A. spring配置
@@ -173,11 +251,10 @@ A. spring配置
 Bean的配置：nothing to say
 
 import：用于团队开发,将多人的配置文件整合到一起。
-&lt;import resource=&quot;bean.xml&quot;/&gt;
-
-1、构造器注入
-2、Set方式注入
-            &lt;bean id=&quot;student&quot; class=&quot;pojo.Student&quot;&gt;
+&lt;import resource=&quot;bean.xml&quot;/&gt;</code></pre>
+<p>1、构造器注入</p>
+<p>2、Set方式注入</p>
+<pre><code>            &lt;bean id=&quot;student&quot; class=&quot;pojo.Student&quot;&gt;
             &lt;!-- 普通值注入 --&gt;
             &lt;property name=&quot;name&quot; value=&quot;cppppppd&quot;&gt;&lt;/property&gt;
             &lt;!-- Bean注入 --&gt;
@@ -227,20 +304,37 @@ import：用于团队开发,将多人的配置文件整合到一起。
 
         &lt;bean id=&quot;address&quot; class=&quot;pojo.Address&quot;&gt;
             &lt;property name=&quot;address&quot; value=&quot;江苏省东京市菊花村&quot;&gt;&lt;/property&gt;
-        &lt;/bean&gt;
+        &lt;/bean&gt;</code></pre>
+<p>3、其他方式（拓展）</p>
+<p>p命名空间导入：</p>
+<pre><code>    xmlns:p=&quot;http://www.springframework.org/schema/p&quot; //针对类的属性</code></pre>
+<p>c命名空间导入：</p>
+<pre><code>    xmlns:c=&quot;http://www.springframework.org/schema/c&quot; //针对构造器
 
-3、其他方式（拓展）
-    p命名空间导入：
-        xmlns:p=&quot;http://www.springframework.org/schema/p&quot; //针对类的属性
-    c命名空间导入：
-        xmlns:c=&quot;http://www.springframework.org/schema/c&quot; //针对构造器
-
-    注意点：p、c命名空间不可直接使用，需要导入
-4、bean scope
-singleton:scope=&quot;singleton&quot;; //spring默认
+    注意点：p、c命名空间不可直接使用，需要导入</code></pre>
+<p>4、bean scope</p>
+<pre><code>singleton:scope=&quot;singleton&quot;; //spring默认
 prototype:scope=&quot;prototype&quot;;
 其余：request、session、application   web开发使用</code></pre>
-<p>2、</p>
+<p>5、Bean的自动装配<br>装配的三种方式：xml中显示配置；java中显示配置；隐式的自动装配Bean </p>
+<pre><code>自动装配：
+    通过byType
+    &lt;bean id=&quot;cat&quot; class=&quot;bean.Cat&quot;&gt;&lt;/bean&gt;
+    &lt;bean id=&quot;dog&quot; class=&quot;bean.Dog&quot;&gt;&lt;/bean&gt;
+
+    &lt;bean id=&quot;people&quot; class=&quot;bean.People&quot; autowire=&quot;byType&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;xiapming&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+    通过byName
+    &lt;bean id=&quot;cat&quot; class=&quot;bean.Cat&quot;&gt;&lt;/bean&gt;
+    &lt;bean id=&quot;dog&quot; class=&quot;bean.Dog&quot;&gt;&lt;/bean&gt;
+
+    &lt;bean id=&quot;people&quot; class=&quot;bean.People&quot; autowire=&quot;byName&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;xiapming&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;</code></pre>
+<ul>
+<li>使用注解实现自动装配 见【注解】笔记</li>
+</ul>
 
       
 
